@@ -344,15 +344,15 @@ class SkærmTæller:
                             self.message7_printed = True
                             self.point_9 += 1
                         if self.button_33_clicked and self.button_34_clicked and not self.message8_printed:
-                            print("Stråle")
+                            print("Stråle og åle")
                             self.message8_printed = True
                             self.point_9 += 1
                         if self.button_35_clicked and self.button_36_clicked and not self.message9_printed:
-                            print("Åle")
+                            print("Ballade og marmelade")
                             self.message9_printed = True
                             self.point_9 += 1
                         if self.button_37_clicked and self.button_38_clicked and not self.message10_printed:
-                            print("Ballade og marmelade")
+                            print("Hest og bedst")
                             self.message10_printed = True
                             self.point_9 += 1
             # Handle textbox inputs
@@ -407,26 +407,6 @@ class SkærmTæller:
                     if self.screen_38_button.is_over(event.pos):
                         self.button_38_clicked = True
 
-                if self.button_29_clicked and self.button_30_clicked and not self.message_printed:
-                    print("Fandt og blandt")
-                    self.message6_printed = True
-                    self.point_9 += 1
-                if self.button_31_clicked and self.button_32_clicked and not self.message2_printed:
-                    print("Hund og stund")
-                    self.message7_printed = True
-                    self.point_9 += 1
-                if self.button_33_clicked and self.button_34_clicked and not self.message3_printed:
-                    print("Stråle og åle")
-                    self.message8_printed = True
-                    self.point_9 += 1
-                if self.button_35_clicked and self.button_36_clicked and not self.message4_printed:
-                    print("Ballade og marmelade")
-                    self.message9_printed = True
-                    self.point_9 += 1
-                if self.button_37_clicked and self.button_38_clicked and not self.message5_printed:
-                    print("Hest og bedst")
-                    self.message10_printed = True
-                    self.point_9 += 1
 
 
 
