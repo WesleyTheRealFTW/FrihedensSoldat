@@ -95,6 +95,8 @@ class SkærmTæller:
         pygame.mixer.init()
         #pygame.mixer.music.load("MGR.mp3")
         #pygame.mixer.music.play(-1)
+        self.sound = pygame.mixer.Sound("Hoe siger tak.mp3")
+        self.sound_played = False
         self.skaerm_bredde = 800
         self.skaerm_hoejde = 600
         self.skaerm = pygame.display.set_mode((self.skaerm_bredde, self.skaerm_hoejde))
@@ -414,12 +416,9 @@ class SkærmTæller:
 
     def draw_screen(self):
         if self.nuvaerende_skaerm == 0:
-            pygame.mixer_music.load("")
             background_img = pygame.image.load("Startskrm_eksamensprojekt.png")
             background_img = pygame.transform.scale(background_img, (self.skaerm_bredde, self.skaerm_hoejde))
-
             self.skaerm.blit(background_img, (0, 0))
-
             self.start_button.active = True
             self.start_button.draw()
         elif self.nuvaerende_skaerm >= 1 and self.nuvaerende_skaerm < 4:
@@ -427,6 +426,9 @@ class SkærmTæller:
                 self.skaerm.fill((255, 255, 255))
                 if not self.key1_clicked:
                     self.key1.draw_key()
+                if not self.sound_played:
+                    self.sound.play()
+                    self.sound_played = True
             elif self.nuvaerende_skaerm == 2:
                 self.skaerm.fill((255, 0, 0))
                 if not self.key2_clicked:
