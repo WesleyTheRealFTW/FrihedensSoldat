@@ -93,8 +93,10 @@ class SkærmTæller:
     def __init__(self):
         pygame.init()
         pygame.mixer.init()
-        pygame.mixer.music.load("MGR.mp3")
-        pygame.mixer.music.play(-1)
+        #pygame.mixer.music.load("MGR.mp3")
+        #pygame.mixer.music.play(-1)
+        self.sound = pygame.mixer.Sound("Hoe siger tak.mp3")
+        self.sound_played = False
         self.skaerm_bredde = 800
         self.skaerm_hoejde = 600
         self.skaerm = pygame.display.set_mode((self.skaerm_bredde, self.skaerm_hoejde))
@@ -344,15 +346,15 @@ class SkærmTæller:
                             self.message7_printed = True
                             self.point_9 += 1
                         if self.button_33_clicked and self.button_34_clicked and not self.message8_printed:
-                            print("Stråle")
+                            print("Stråle og åle")
                             self.message8_printed = True
                             self.point_9 += 1
                         if self.button_35_clicked and self.button_36_clicked and not self.message9_printed:
-                            print("Åle")
+                            print("Ballade og marmelade")
                             self.message9_printed = True
                             self.point_9 += 1
                         if self.button_37_clicked and self.button_38_clicked and not self.message10_printed:
-                            print("Ballade og marmelade")
+                            print("Hest og bedst")
                             self.message10_printed = True
                             self.point_9 += 1
             # Handle textbox inputs
@@ -407,26 +409,6 @@ class SkærmTæller:
                     if self.screen_38_button.is_over(event.pos):
                         self.button_38_clicked = True
 
-                if self.button_29_clicked and self.button_30_clicked and not self.message_printed:
-                    print("Fandt og blandt")
-                    self.message6_printed = True
-                    self.point_9 += 1
-                if self.button_31_clicked and self.button_32_clicked and not self.message2_printed:
-                    print("Hund og stund")
-                    self.message7_printed = True
-                    self.point_9 += 1
-                if self.button_33_clicked and self.button_34_clicked and not self.message3_printed:
-                    print("Stråle og åle")
-                    self.message8_printed = True
-                    self.point_9 += 1
-                if self.button_35_clicked and self.button_36_clicked and not self.message4_printed:
-                    print("Ballade og marmelade")
-                    self.message9_printed = True
-                    self.point_9 += 1
-                if self.button_37_clicked and self.button_38_clicked and not self.message5_printed:
-                    print("Hest og bedst")
-                    self.message10_printed = True
-                    self.point_9 += 1
 
 
 
@@ -436,9 +418,7 @@ class SkærmTæller:
         if self.nuvaerende_skaerm == 0:
             background_img = pygame.image.load("Startskrm_eksamensprojekt.png")
             background_img = pygame.transform.scale(background_img, (self.skaerm_bredde, self.skaerm_hoejde))
-
             self.skaerm.blit(background_img, (0, 0))
-
             self.start_button.active = True
             self.start_button.draw()
         elif self.nuvaerende_skaerm >= 1 and self.nuvaerende_skaerm < 4:
@@ -446,6 +426,9 @@ class SkærmTæller:
                 self.skaerm.fill((255, 255, 255))
                 if not self.key1_clicked:
                     self.key1.draw_key()
+                if not self.sound_played:
+                    self.sound.play()
+                    self.sound_played = True
             elif self.nuvaerende_skaerm == 2:
                 self.skaerm.fill((255, 0, 0))
                 if not self.key2_clicked:
