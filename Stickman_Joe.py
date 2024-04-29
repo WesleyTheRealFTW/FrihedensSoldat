@@ -384,29 +384,6 @@ class SkærmTæller:
                 self.textbox3.text = ""
                 self.correct_count += 1
 
-            elif self.nuvaerende_skaerm == 9:
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if self.screen_29_button.is_over(event.pos):
-                        self.button_29_clicked = True
-                    if self.screen_30_button.is_over(event.pos):
-                        self.button_30_clicked = True
-                    if self.screen_31_button.is_over(event.pos):
-                        self.button_31_clicked = True
-                    if self.screen_32_button.is_over(event.pos):
-                        self.button_32_clicked = True
-                    if self.screen_33_button.is_over(event.pos):
-                        self.button_33_clicked = True
-                    if self.screen_34_button.is_over(event.pos):
-                        self.button_34_clicked = True
-                    if self.screen_35_button.is_over(event.pos):
-                        self.button_35_clicked = True
-                    if self.screen_36_button.is_over(event.pos):
-                        self.button_36_clicked = True
-                    if self.screen_37_button.is_over(event.pos):
-                        self.button_37_clicked = True
-                    if self.screen_38_button.is_over(event.pos):
-                        self.button_38_clicked = True
-
                 if self.button_29_clicked and self.button_30_clicked and not self.message_printed:
                     print("Fandt og blandt")
                     self.message6_printed = True
@@ -586,6 +563,7 @@ class SkærmTæller:
             self.textbox1.draw(self.skaerm)
             self.textbox2.draw(self.skaerm)
             self.textbox3.draw(self.skaerm)
+
             skaermtal_tekst = self.font.render(f"Skærm {self.nuvaerende_skaerm}", True, (0, 0, 0))
             self.skaerm.blit(skaermtal_tekst, (self.skaerm_bredde // 2 - skaermtal_tekst.get_width() // 2, 20))
             self.left_button.active = True
