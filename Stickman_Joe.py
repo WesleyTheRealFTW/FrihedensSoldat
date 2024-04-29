@@ -93,8 +93,8 @@ class SkærmTæller:
     def __init__(self):
         pygame.init()
         pygame.mixer.init()
-        pygame.mixer.music.load("MGR.mp3")
-        pygame.mixer.music.play(-1)
+        #pygame.mixer.music.load("MGR.mp3")
+        #pygame.mixer.music.play(-1)
         self.skaerm_bredde = 800
         self.skaerm_hoejde = 600
         self.skaerm = pygame.display.set_mode((self.skaerm_bredde, self.skaerm_hoejde))
@@ -414,6 +414,7 @@ class SkærmTæller:
 
     def draw_screen(self):
         if self.nuvaerende_skaerm == 0:
+            pygame.mixer_music.load("")
             background_img = pygame.image.load("Startskrm_eksamensprojekt.png")
             background_img = pygame.transform.scale(background_img, (self.skaerm_bredde, self.skaerm_hoejde))
 
