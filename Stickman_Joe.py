@@ -93,9 +93,17 @@ class SkærmTæller:
     def __init__(self):
         pygame.init()
         pygame.mixer.init()
-        #pygame.mixer.music.load("MGR.mp3")
+        #pygame.mixer.music.load("musik.mp3")
         #pygame.mixer.music.play(-1)
         self.sound = pygame.mixer.Sound("Hoe siger tak.mp3")
+        self.sound_1 = pygame.mixer.Sound("Ny stickman joe mp3/Joe stol.mp3")
+        self.sound_2 = pygame.mixer.Sound("Ny stickman joe mp3/Joes cement.mp3")
+        self.sound_3 = pygame.mixer.Sound("Ny stickman joe mp3/Joes gren.mp3")
+        self.sound_4 = pygame.mixer.Sound("Ny stickman joe mp3/Joes sten.mp3")
+        self.sound_5 = pygame.mixer.Sound("Ny stickman joe mp3/Joe æg.mp3")
+        self.sound_6 = pygame.mixer.Sound("Ny stickman joe mp3/Joe mælk.mp3")
+        self.sound_7 = pygame.mixer.Sound("Ny stickman joe mp3/Joe æble.mp3")
+        self.sound_8 = pygame.mixer.Sound("Ny stickman joe mp3/Joes banan.mp3")
         self.sound_played = False
         self.skaerm_bredde = 800
         self.skaerm_hoejde = 600
@@ -426,9 +434,6 @@ class SkærmTæller:
                 self.skaerm.fill((255, 255, 255))
                 if not self.key1_clicked:
                     self.key1.draw_key()
-                if not self.sound_played:
-                    self.sound.play()
-                    self.sound_played = True
             elif self.nuvaerende_skaerm == 2:
                 self.skaerm.fill((255, 0, 0))
                 if not self.key2_clicked:
@@ -476,12 +481,28 @@ class SkærmTæller:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.screen_10_button.is_over(event.pos):
                         print("Click Sten")
+                        self.sound_4.play()
                     elif self.screen_11_button.is_over(event.pos):
                         print("Click Gren")
+                        self.sound_3.play()
                     elif self.screen_12_button.is_over(event.pos):
                         print("Click Stol")
+                        self.sound_1.play()
                     elif self.screen_13_button.is_over(event.pos):
                         print("Click Cement")
+                        self.sound_2.play()
+                    elif self.screen_4_button.is_over(event.pos):
+                        print("Click Æg")
+                        self.sound_5.play()
+                    elif self.screen_5_button.is_over(event.pos):
+                        print("Click Æble")
+                        self.sound_7.play()
+                    elif self.screen_6_button.is_over(event.pos):
+                        print("Click Mælk")
+                        self.sound_6.play()
+                    elif self.screen_9_button.is_over(event.pos):
+                        print("Click Banan")
+                        self.sound_8.play()
                     elif (self.nuvaerende_skaerm == 4 and
                           (self.screen_4_button.is_over(event.pos) or
                            self.screen_5_button.is_over(event.pos) or
@@ -505,14 +526,11 @@ class SkærmTæller:
                 self.right_button.active = False
         elif self.nuvaerende_skaerm == 5:
             self.skaerm.fill((255, 255, 0))
-            # Draw screen number
             skaermtal_tekst = self.font.render(f"Skærm {self.nuvaerende_skaerm}", True, (0, 0, 0))
             self.skaerm.blit(skaermtal_tekst, (self.skaerm_bredde // 2 - skaermtal_tekst.get_width() // 2, 20))
-            # Draw the "Venstre" button on screen 5
             self.left_button.active = True
             self.left_button.color = (0, 0, 0)
             self.left_button.draw()
-            # Draw the "Højre" button on screen 5
             self.right_button.active = True
             self.right_button.color = (0, 0, 0)
             self.right_button.draw()
@@ -551,14 +569,11 @@ class SkærmTæller:
 
         elif self.nuvaerende_skaerm == 7:
             self.skaerm.fill((0, 255, 255))
-            # Draw screen number
             skaermtal_tekst = self.font.render(f"Skærm {self.nuvaerende_skaerm}", True, (0, 0, 0))
             self.skaerm.blit(skaermtal_tekst, (self.skaerm_bredde // 2 - skaermtal_tekst.get_width() // 2, 20))
-            # Draw the "Venstre" button on screen 7
             self.left_button.active = True
             self.left_button.color = (0, 0, 0)
             self.left_button.draw()
-            # Draw the "Højre" button on screen 7
             self.right_button.active = True
             self.right_button.color = (0, 0, 0)
             self.right_button.draw()
@@ -612,6 +627,8 @@ class SkærmTæller:
                 self.right_button.active = True
                 self.right_button.color = (0, 0, 0)
                 self.right_button.draw()
+                self.sound.play()
+                self.sound_played = True
             else:
                 self.right_button.active = False
 
