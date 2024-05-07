@@ -269,19 +269,7 @@ class SkærmTæller:
                         self.key3_clicked = True
                         print("The third key has been clicked")
 
-                    elif (event.button == pygame.BUTTON_LEFT and
 
-                          self.nuvaerende_skaerm == 4 and
-                          (self.screen_4_button.is_over(event.pos) or
-                           self.screen_5_button.is_over(event.pos) or
-                           self.screen_6_button.is_over(event.pos) or
-                           self.screen_9_button.is_over(event.pos))):
-                        for button in self.buttons_clicked:
-                            if button.is_over(event.pos):
-                                self.buttons_clicked[button] = True
-                        if all(self.buttons_clicked.values()):
-                            print("All buttons on screen 4 have been clicked")
-                            self.right_button_active = True
 
                     elif self.nuvaerende_skaerm == 6:
                         button_map = {
@@ -503,7 +491,8 @@ class SkærmTæller:
                     elif self.screen_9_button.is_over(event.pos):
                         print("Click Banan")
                         self.sound_8.play()
-                    elif (self.nuvaerende_skaerm == 4 and
+
+                    if (self.nuvaerende_skaerm == 4 and
                           (self.screen_4_button.is_over(event.pos) or
                            self.screen_5_button.is_over(event.pos) or
                            self.screen_6_button.is_over(event.pos) or
